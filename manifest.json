@@ -4,19 +4,18 @@
     "version": "1.0.0",
     "description": "这里是 description",
     "icons": {
-        "16": "assets/images/sds.png",
-        "32": "assets/images/sds.png",
-        "48": "assets/images/sds.png",
-        "128": "assets/images/sds.png"
+       "16": "assets/images/sds.png",
+       "32": "assets/images/sds.png",
+       "48": "assets/images/sds.png",
+       "128": "assets/images/sds.png"
     },
-    "background": {
-        "service_worker": "assets/js/background.js",
-        "type": "module"
-    },
-    "permissions": ["storage"],
     "action": {
         "default_icon": "assets/images/sds.png",
-		"default_title": "browser_action中的title",
-		"default_popup": "pages/popup.html"
+        "default_title": "browser_action中的title",
+        "default_popup": "pages/popup.html"
+    },
+    "permissions": ["activeTab", "scripting", "contextMenus"],
+    "background": {
+        "service_worker": "background.js"
     }
   }

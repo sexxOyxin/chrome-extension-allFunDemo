@@ -19,30 +19,37 @@
 
 2. 打开 chrome 开发者工具，上传扩展进行调试。
 
-![1723702115358](image/README/1723702115358.png)
+![1724828681206](image/README/1724828681206.png)
 
 打开 `开发者模式` 可以以文件夹的形式直接加载插件，否则只能安装 `.crx` 格式的文件[后续会提到]。
 
 ![1723703354478](image/README/1723703354478.png)
 
-3.扩展安装完毕，接下来完善一下 `manifest`。
+3.扩展安装完毕，接下来继续完善 `manifest`。
 
-> ```json
-> {
->     "manifest_version": 3,
->     "name": "test extension",
->     "version": "1.0.0",
->     "description": "这里是 description",
->     // 图标，有如下4种格式版本，用同一种版本也可
->     "icons": {
->         "16": "assets/images/sds.png", // 扩展程序页面和上下文菜单上的网站图标
->         "32": "assets/images/sds.png", // Windows 计算机通常需要此大小
->         "48": "assets/images/sds.png", // 显示在“扩展程序”页面上
->         "128": "assets/images/sds.png" // 安装时会显示在 Chrome 应用商店中
->     },
->     "background": {
->         "service_worker": "assets/js/background.js",
->         "type": "module"
->     },
->   }
-> ```
+```
+{
+    "manifest_version": 3,
+    "name": "test extension",
+    "version": "1.0.0",
+    "description": "这里是 description",
+    // 图标，有如下4种格式版本，用同一种版本也可
+    "icons": {
+       "16": "assets/images/sds.png", // 扩展程序页面和上下文菜单上的网站图标
+       "32": "assets/images/sds.png", // Windows 计算机通常需要此大小
+       "48": "assets/images/sds.png", // 显示在“扩展程序”页面上
+       "128": "assets/images/sds.png" // 安装时会显示在 Chrome 应用商店中
+    },
+    "action": {
+        "default_icon": "assets/images/sds.png",
+        "default_title": "browser_action中的title", // 用户将鼠标悬停在扩展程序的工具栏的提示
+        "default_popup": "pages/popup.html" // 自适应弹出式窗口
+    },
+    "permissions": ["activeTab", "scripting"],
+    "background": {
+        "service_worker": "assets/js/background.js",
+        "type": "module"
+    }
+  }
+```
+
